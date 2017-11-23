@@ -11,11 +11,10 @@ from subprocess import Popen
 from PIL import ImageTk
 from tkinter import font
 from config import config
-root = ""
 
 def ListeChoix():
     
-    
+        
     # Connect to the PostgreSQL database server """
     conn = None
     # Read connection parameters
@@ -105,7 +104,7 @@ def ListeChoix():
         
         p = Popen("script.bat", cwd=os.getcwd())
         stdout, stderr = p.communicate()
-            
+        
 
 
     def getUpdateData(event):
@@ -132,49 +131,24 @@ def ListeChoix():
     # AccountCombo.bind('<<ComboboxSelected>>', updateSQLView)
     CategoryCombo.grid(row = 3,column = 1,padx = 10,pady = 25)
     AccountCombo.grid(row = 5,column = 1,pady = 25,padx = 10)
-    
 
 root = Tk()
 root.option_add('*font', ('verdana', 12, 'bold'))
 root.title("Générateur de rapports - GUI")
 
-class Application():
-    def __init__(root, self, master):
-        self.frame = Frame(master)
-        self.frame.destroy()
-        self.frame.grid()
-    # Logo button in frame (right)
-        selfListButton.pack(fill=BOTH, expand=YES)
-    #print(root)
-    IconButton = Button(command=ListeChoix)
-    image = ImageTk.PhotoImage(file="C:/github_repo/github_repo_python/gui/rapports_color.png")
-    IconButton.config(image=image)
-    IconButton.image = image
-    # Text in frame (left)
-    explanation = """Ce GUI permet la génération de rapports
-semi-automatisés par le choix
-d'un statut d'opportunité.
+def do_go():
+   
+    ListButton.pack(fill=BOTH, expand=YES)
+IconButton = Button( command=ListeChoix)
+image = ImageTk.PhotoImage(file="C:/github_repo/github_repo_python/gui/rapports_color.png")
+IconButton.config(image=image)
+IconButton.image = image
+IconButton.pack(fill=BOTH, expand=YES)
+colorfont = font.Font(family='verdana', size=10, weight=font.BOLD)
+ListButton = Button(text="Choisir dans la liste des opportunités à l\'étude", command=ListeChoix,font=colorfont, height=3  ).pack(side=TOP, anchor=W, fill=X, expand=YES)
 
-L'application lancera les requêtes
-sur TOUTES les opportunités
-concernées par le statut choisi.
 
-Pour finir, l'utilisateur devra rentrer
-son mot de passe windows afin de
-lancer la création de toutes les opérations.
-
-A vous de jouer!"""
-    colorfonttext = font.Font(family='verdana', size=8, weight=font.BOLD, slant=font.ITALIC)
-    w2 = tk.Label(root, 
-              justify=tk.CENTER,
-              padx = 4, 
-              text=explanation,  fg = "red4", font=colorfonttext).pack(side="left")
-    IconButton.pack(fill=BOTH, expand=YES)
-    
-    # Button list in frame (down)
-    colorfont = font.Font(family='verdana', size=10, weight=font.BOLD)
-    ListButton = Button(text="Choisir dans la liste des opportunités à l\'étude", command=ListeChoix,font=colorfont, height=3).pack(side=TOP, anchor=W, fill=X, expand=YES)
+  
 
 root.mainloop()
-
 

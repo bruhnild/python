@@ -1,7 +1,7 @@
 import psycopg2
 import sys
  
-def main():
+def connect_to_database():
 	#Define our connection string
 	conn_string = "host='www.metis-reseaux.fr' dbname='l49' user='postgres' password='UhtS.1Hd2' port=5678"
  
@@ -16,4 +16,4 @@ def main():
 	print ("Connected!\n")
  
 if __name__ == "__main__":
-	main()
+	connect_to_database()

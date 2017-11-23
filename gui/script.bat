@@ -3,7 +3,7 @@
 rem definition des variables
 
 rem set user=%USERNAME%
-set user=g.bruel
+set user=m.faucher
 set chemin=/home/public/FTTH\ RIP/14-ADN/04-Scripts/rapport_bi_mensuel/bash/
 set server=192.168.101.254
 set script=call_python_script.sh
