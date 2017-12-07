@@ -31,13 +31,13 @@ c.grid(column=0, row=0, sticky=(N,W,E,S))
 root.grid_columnconfigure(0, weight=1)
 root.grid_rowconfigure(0,weight=1)
 
-fname = "rapports.png"
+fname = "rapports_color.png"
 image_tk = ImageTk.PhotoImage(Image.open(fname))
 
-fname1 = "report.png"
+fname1 = "rapports_color.png"
 image_tk1 = ImageTk.PhotoImage(Image.open(fname1))  # new image object
 
-fname2 = "rapport_symbol.jpg"
+fname2 = "rapports_color.png"
 image_tk2 = ImageTk.PhotoImage(Image.open(fname2))  # new image object
 
 

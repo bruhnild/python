@@ -4,7 +4,7 @@ from PIL import ImageTk
 root = tk.Tk()
 def make_button():
     b = tk.Button(root)
-    image = ImageTk.PhotoImage(file="C:/Users/jean-Noel-11/Desktop/temp/rapports.png")
+    image = ImageTk.PhotoImage(file="rapports_color.png")
     b.config(image=image)
     b.image = image
     b.pack()

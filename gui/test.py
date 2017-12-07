@@ -1,19 +1,41 @@
-from tkinter import *
+import tkinter as tk
+from PIL import ImageTk
 
-root = Tk()
 
-def ouvre():
-    for i in range(5):
-        tpl = Toplevel(root)
-        Label(tpl,text="je suis la fenetre %s" %i).pack()
+        
+class Demo2:
+    def __init__(self, master):
+        self.master = master
+        self.frame = tk.Frame(self.master)
+        self.quitButton = tk.Button(self.frame, text = 'Quit', width = 25, command = self.close_windows)
+        self.quitButton.pack()
+        self.frame.pack()
+    def close_windows(self):
+        self.master.destroy()
 
-def ferme():
-    for widget in root.winfo_children():
-        if isinstance(widget,Toplevel):
-            widget.destroy()
+class windowclass():
+    def __init__(self, master):
+        self.master = master
+        self.btn = tk.Button(master, text="Button", command=self.command)
+        image = ImageTk.PhotoImage(file="rapports_color.png")
+        self.btn.config(image=image)
+        self.btn.image = image
+        self.btn.pack()
 
-Label(root,text="J'ouvre et je ferme des fenetres !").pack()
-Button(root,text="Ouvrir 5 fenetres",command=ouvre).pack()
-Button(root,text="Fermer tout !",command=ferme).pack()
+    def command(self):
+        print("hello")
+        # Supprime la 1ere fenetre
+        self.master.withdraw()
+        #creation d'une nouvelle fenetre
+        #toplevel = tk.Toplevel(self.master)
+        toplevel = ""
+        # dessine la fenetre
+        #toplevel.geometry("350x350")
+        # appel la classe Demo2 avec le top fenêtre en paramètre
+        app = Demo2(toplevel)
 
+root = tk.Tk()
+root.title("window")
+root.geometry("350x350")
+cls = windowclass(root)
 root.mainloop()
